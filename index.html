@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zip the Fox - Forest Adventure</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-wrap">
+    <div class="hud">
+      <div class="hud-item">ZIP<br><span id="lives">♥♥♥</span></div>
+      <div class="hud-item">💎 <span id="gems">0</span></div>
+      <div class="hud-item">WORLD<br>1-1</div>
+      <div class="hud-item">TIME<br><span id="time">300</span></div>
+    </div>
+    <div class="canvas-holder">
+      <canvas id="game" width="960" height="540"></canvas>
+
+      <!-- ស្គ្រីនចាប់ផ្តើម -->
+      <div id="start-screen" class="overlay">
+        <h1 class="game-title">🦊 Zip the Fox</h1>
+        <p class="game-subtitle">Forest Adventure</p>
+        <button id="start-btn" class="menu-btn">▶ ចាប់ផ្តើមលេង</button>
+        <button id="howto-btn" class="menu-btn secondary">❓ របៀបលេង</button>
+      </div>
+
+      <!-- ស្គ្រីនរបៀបលេង -->
+      <div id="howto-screen" class="overlay hidden">
+        <h2>របៀបលេង</h2>
+        <ul class="howto-list">
+          <li>⬅️➡️ ឬប៊ូតុងលើអេក្រង់ — ដើរ</li>
+          <li>⬆️ ឬប៊ូតុងលោត — លោត</li>
+          <li>ជាន់លើក្បាលសត្រូវ ដើម្បីវាយឈ្នះ</li>
+          <li>ប្រមូល 💎 ដើម្បីបានពិន្ទុ</li>
+          <li>ដល់ទង់ 🚩 ដើម្បីឈ្នះ</li>
+        </ul>
+        <button id="back-btn" class="menu-btn">ត្រឡប់ក្រោយ</button>
+      </div>
+
+      <!-- ស្គ្រីនចប់ហ្គេម -->
+      <div id="overlay" class="overlay hidden">
+        <h2 id="overlay-title">Game Over</h2>
+        <p id="overlay-msg"></p>
+        <button id="restart-btn" class="menu-btn">🔁 លេងម្តងទៀត</button>
+        <button id="menu-btn2" class="menu-btn secondary">🏠 ទៅ Menu</button>
+      </div>
+    </div>
+
+    <!-- ប៊ូតុងលេងសម្រាប់ទូរស័ព្ទ/ងាយស្រួល -->
+    <div class="touch-controls">
+      <button id="btn-left" class="touch-btn">◀</button>
+      <button id="btn-jump" class="touch-btn jump">⬆</button>
+      <button id="btn-right" class="touch-btn">▶</button>
+    </div>
+
+    <p class="instructions">← → ឬប៊ូតុងខាងក្រោម ដើម្បីដើរ &nbsp;|&nbsp; ↑/Space ដើម្បីលោត</p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

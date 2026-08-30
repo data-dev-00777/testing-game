@@ -1,0 +1,199 @@
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background:radial-gradient(circle at 30% 20%, #1e3a5f 0%, #0d1117 55%, #05070a 100%);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Segoe UI', 'Courier New', monospace;
+  padding:16px;
+}
+
+.game-wrap {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+}
+
+.hud {
+  width:960px;
+  max-width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:linear-gradient(180deg, #212c42, #161d2d);
+  color:#ffd166;
+  padding:10px 22px;
+  border-radius:14px 14px 0 0;
+  border:1px solid #2f3d58;
+  border-bottom:none;
+  font-weight:bold;
+  font-size:14px;
+  text-align:center;
+  box-shadow:0 -2px 12px rgba(0,0,0,0.3) inset;
+}
+
+.hud-item {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2px;
+  letter-spacing:0.5px;
+}
+
+.hud-item span { color:#fff; }
+
+#lives { color:#ff5d7a; text-shadow:0 0 6px rgba(255,93,122,0.6); }
+#gems { color:#ffd23f; }
+#time { color:#a8ffb0; }
+
+.canvas-holder {
+  position:relative;
+  width:960px;
+  max-width:100%;
+  border-radius:0 0 16px 16px;
+  overflow:hidden;
+  border:1px solid #2f3d58;
+  box-shadow:0 14px 40px rgba(0,0,0,0.55), 0 0 0 4px rgba(76,201,240,0.06);
+}
+
+canvas {
+  background:#5cc8ff;
+  display:block;
+  width:100%;
+  height:auto;
+  image-rendering:pixelated;
+}
+
+.instructions {
+  color:#8b96a8;
+  font-size:13px;
+  text-align:center;
+  letter-spacing:0.3px;
+}
+
+.overlay {
+  position:absolute;
+  top:0; left:0; right:0; bottom:0;
+  background:radial-gradient(circle at 50% 30%, rgba(30,58,95,0.96), rgba(5,7,10,0.97));
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  text-align:center;
+  padding:20px;
+}
+
+.hidden { display:none !important; }
+
+.overlay h2 {
+  margin-bottom:4px;
+  color:#ffd166;
+  font-size:26px;
+  text-shadow:0 0 12px rgba(255,209,102,0.5);
+}
+.overlay p { margin-bottom:10px; color:#cdd6e3; }
+
+.game-title {
+  font-size:36px;
+  color:#ffd166;
+  text-shadow:0 0 18px rgba(255,209,102,0.55), 3px 3px 0 #c9860a;
+  letter-spacing:1px;
+  animation:floaty 2.4s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0%,100% { transform:translateY(0); }
+  50% { transform:translateY(-6px); }
+}
+
+.game-subtitle {
+  color:#7fe0a3;
+  margin-bottom:22px;
+  font-size:14px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.menu-btn {
+  background:linear-gradient(180deg, #ff8a7a, #ff6b6b);
+  border:none;
+  color:#fff;
+  padding:13px 34px;
+  border-radius:26px;
+  font-size:16px;
+  cursor:pointer;
+  font-family:inherit;
+  font-weight:bold;
+  min-width:220px;
+  box-shadow:0 6px 16px rgba(255,107,107,0.35);
+  transition:transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.menu-btn:hover {
+  transform:translateY(-2px) scale(1.03);
+  box-shadow:0 10px 22px rgba(255,107,107,0.45);
+}
+
+.menu-btn:active { transform:translateY(0) scale(0.98); }
+
+.menu-btn.secondary {
+  background:linear-gradient(180deg, #4d6082, #3a4a63);
+  box-shadow:0 6px 16px rgba(58,74,99,0.4);
+}
+
+.menu-btn.secondary:hover {
+  box-shadow:0 10px 22px rgba(58,74,99,0.5);
+}
+
+.howto-list {
+  list-style:none;
+  text-align:left;
+  margin-bottom:18px;
+  line-height:2;
+  font-size:14.5px;
+  color:#dbe3ee;
+  background:rgba(255,255,255,0.05);
+  padding:16px 22px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+/* --- ប៊ូតុងសម្រាប់ទូរស័ព្ទ/ចុច --- */
+.touch-controls {
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  width:100%;
+  max-width:960px;
+}
+
+.touch-btn {
+  background:linear-gradient(180deg, #212c42, #161d2d);
+  color:#ffd166;
+  border:2px solid #2f3d58;
+  border-radius:16px;
+  font-size:26px;
+  width:64px;
+  height:64px;
+  cursor:pointer;
+  user-select:none;
+  touch-action:none;
+  box-shadow:0 4px 10px rgba(0,0,0,0.4);
+  transition:transform 0.1s ease, background 0.15s ease;
+}
+
+.touch-btn:active, .touch-btn.pressed {
+  background:linear-gradient(180deg, #ffd166, #ffb703);
+  color:#1a2233;
+  transform:scale(0.94);
+}
+
+.touch-btn.jump {
+  width:84px;
+}
